@@ -17,7 +17,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text||
 |image|string|null: true|
 |users_id|references|null: false, foreign_key: true|
 |groups_id|references|null: false, foreign_key: true|
