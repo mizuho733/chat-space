@@ -1,0 +1,37 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.side {
+  height: 100vh;
+  width: 300px;
+  background-color: #253141;
+  padding: 0 20px;
+  &__header {
+    height: 100px;
+    &--user-name {
+      font-size: 16px;
+      color: #FFFFFF;
+      font-weight: bold;
+      float: left;
+      line-height: 100px;
+    }
+    &--user-icons {
+      float: right;
+      line-height: 100px;
+      .sideicons-color {
+        color: white;
+      }
+    }
+  }
+  &__groups
+}
+
+
+.chat-side {
+  height: 100%;
+  flex: 1;
+  background-color: blue;
+}
