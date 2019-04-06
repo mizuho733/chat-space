@@ -80,9 +80,11 @@
     }
   }
   .messages {
-    padding: 0 40px;
+    height: calc(100vh - 100px);
+    padding: 46px 40px;
+    background-color: #fafafa;
     .message {
-      margin-top: 46px;
+      margin-bottom: 40px;
       .message-info {
         display: flex;
         &__user {
