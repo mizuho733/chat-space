@@ -20,6 +20,14 @@
 
   .chat-side
     .chat-header
-      %p.chat-header__group-name
-        test_group
+      .group-wrapper
+        %p.group-wrapper__group-name
+          test_group
+        %ul.group-wrapper__members-list
+          Member :
+          %li.members-name
+            test_user
+      %a{:href => "#"}
+        .chat-header__edit-btn
+          Edit
 
