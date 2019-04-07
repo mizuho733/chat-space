@@ -4,8 +4,10 @@
       %p.side__header--user-name
         test_user
       .side__header--user-icons
-        %i.fas.fa-edit.sideicons-color
-        %i.fas.fa-cog.sideicons-color
+        = link_to do
+          %i.fas.fa-edit.sideicons-color
+        = link_to do
+          %i.fas.fa-cog.sideicons-color
     .side-groups
       .group
         %p.group__name
@@ -56,4 +58,3 @@
               %i.far.fa-image
               %input.image__input{:type => "file"}/
           %input.form__submit-btn{:type => "submit", :value => "Send"}/
-
