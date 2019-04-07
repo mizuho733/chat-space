@@ -47,3 +47,13 @@
             2019/00/00(sun) 00:00:00
         %p.message__text
           さようなら！
+    .form-box
+      .form-wrapper
+        %form.form{:action => "#", :method => "POST"}
+          .form__input-box
+            %input.form__input-box--text{:placeholder => "type a message", :type => "text"}/
+            %label.image
+              %i.far.fa-image
+              %input.image__input{:type => "file"}/
+          %input.form__submit-btn{:type => "submit", :value => "Send"}/
+
