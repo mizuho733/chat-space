@@ -4,6 +4,7 @@
   display: flex;
 }
 
+/* 画面左側 */
 .side {
   height: 100vh;
   width: 300px;
@@ -13,7 +14,7 @@
     padding: 0 20px;
     &--user-name {
       font-size: 16px;
-      color: #FFFFFF;
+      color: $charaWhiteColor;
       font-weight: bold;
       float: left;
       line-height: 100px;
@@ -33,7 +34,7 @@
     font-weight: bold;
     .group {
       margin-bottom: 40px;
-      color: #FFFFFF;
+      color: $charaWhiteColor;
       &__name {
         font-size: 15px;
         margin-bottom :5px;
@@ -45,7 +46,7 @@
   }
 }
 
-
+/* 画面右側 */
 .chat-side {
   height: 100vh;
   flex: 1;
@@ -134,7 +135,7 @@
         }
         &__submit-btn {
           background-color: #38AEF0;
-          color: #FFFFFF;
+          color: $charaWhiteColor;
           height: 50px;
           width: 100px;
           margin-left: 15px;
