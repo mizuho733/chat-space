@@ -76,8 +76,8 @@
       padding: 0 20px;
       height: 40px;
       line-height: 40px;
-      color: #38aef0;
-      border: solid 1px #38aef0;
+      color: $btnBlueColor;
+      border: solid 1px $btnBlueColor;
     }
   }
   .messages {
@@ -134,7 +134,7 @@
           }
         }
         &__submit-btn {
-          background-color: #38AEF0;
+          background-color: $btnBlueColor;
           color: $charaWhiteColor;
           height: 50px;
           width: 100px;
