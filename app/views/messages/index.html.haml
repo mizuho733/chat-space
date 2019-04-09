@@ -2,7 +2,7 @@
   .side
     .side__header
       %p.side__header--user-name
-        test_user
+        =current_user.name
       .side__header--user-icons
         = link_to do
           %i.fas.fa-edit.sideicons-color
