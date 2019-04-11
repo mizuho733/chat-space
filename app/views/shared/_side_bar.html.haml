@@ -8,10 +8,10 @@
         = link_to edit_user_path(current_user) do
           %i.fas.fa-cog.sideicons-color
     .side-groups
+      - current_user.groups.each do |group|
       .group
-        - current_user.groups.each do |group|
-          = link_to group_messages_path(group) do
-        %group__name
-          = group.name
-        %group__last-message
-          まだメッセージはありません
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__last-message
+            まだメッセージはありません
