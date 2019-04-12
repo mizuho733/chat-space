@@ -1,5 +1,3 @@
-= render 'side'
-
 .chat-side
   .chat-header
     .group-wrapper
@@ -7,6 +5,8 @@
         test_group
       %ul.group-wrapper__members-list
         Member :
+        - @group.users.each do |user|
+          = user.name
         %li.members-name
           test_user
     = link_to '/groups/1/edit' do
