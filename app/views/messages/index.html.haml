@@ -1,27 +1,29 @@
-.chat-side
-  .chat-header
-    .group-wrapper
-      %p.group-wrapper__group-name
-        test_group
-      %ul.group-wrapper__members-list
-        Member :
-        - @group.users.each do |user|
-          = user.name
-        %li.members-name
-          test_user
-    = link_to '/groups/1/edit' do
-      .chat-header__edit-btn
-        Edit
-  .messages
-    = render @messages
-  .form-box
-    .form-wrapper
-      .form
-        = form_for [@group, @message] do |f|
-          .form__input-box
-            = f.text_field :body, class: 'form__input-box--text', placeholder: 'type a message'
-            .image
-              = f.label :image, class: 'image__label' do
-                = fa_icon 'image'
-                = f.file_field :image, class: 'image__input'
-          = f.submit 'Send', class: 'form__submit-btn'
+.wrapper
+  = render 'shared/side_bar'
+  .chat-side
+    .chat-header
+      .group-wrapper
+        %p.group-wrapper__group-name
+          test_group
+        %ul.group-wrapper__members-list
+          Member :
+          - @group.users.each do |user|
+            = user.name
+          %li.members-name
+            test_user
+      = link_to '/groups/1/edit' do
+        .chat-header__edit-btn
+          Edit
+    .messages
+      = render @messages
+    .form-box
+      .form-wrapper
+        .form
+          = form_for [@group, @message] do |f|
+            .form__input-box
+              = f.text_field :body, class: 'form__input-box--text', placeholder: 'type a message'
+              .image
+                = f.label :image, class: 'image__label' do
+                  = fa_icon 'image'
+                  = f.file_field :image, class: 'image__input'
+            = f.submit 'Send', class: 'form__submit-btn'
