@@ -51,10 +51,12 @@
           さようなら！
     .form-box
       .form-wrapper
-        %form.form{:action => "#", :method => "POST"}
-          .form__input-box
-            %input.form__input-box--text{:placeholder => "type a message", :type => "text"}/
-            %label.image
-              %i.far.fa-image
-              %input.image__input{:type => "file"}/
-          %input.form__submit-btn{:type => "submit", :value => "Send"}/
+        .form
+          = form_for [@group, @message] do |f|
+            .form__input-box
+              = f.text_field :content, class: 'form__input-box--text', placeholder: 'type a message'
+              .image
+                = f.label :image, class: 'image__label' do
+                  = fa_icon 'image'
+                  = f.file_field :image, class: 'image__input'
+            = f.submit 'Send', class: 'form__submit-btn'
