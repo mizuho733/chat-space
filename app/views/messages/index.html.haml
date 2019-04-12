@@ -4,14 +4,14 @@
     .chat-header
       .group-wrapper
         %p.group-wrapper__group-name
-          test_group
+          = @group.name
         %ul.group-wrapper__members-list
           Member :
           - @group.users.each do |user|
             = user.name
           %li.members-name
             test_user
-      = link_to '/groups/1/edit' do
+      = link_to edit_group_path(@group.id) do
         .chat-header__edit-btn
           Edit
     .messages
