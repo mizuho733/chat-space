@@ -25,6 +25,7 @@
     padding: 20px 20px 0;
     height: calc(100vh - 100px);
     font-weight: bold;
+    overflow: scroll;
     .group {
       margin-bottom: 40px;
       color: $charaWhiteColor;

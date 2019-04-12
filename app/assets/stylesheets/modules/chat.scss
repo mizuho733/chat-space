@@ -35,6 +35,7 @@
     height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: #fafafa;
+    overflow: scroll;
     .message {
       margin-bottom: 40px;
       .message-info {
@@ -63,8 +64,8 @@
     background-color: #DDDDDD;
     padding: 20px 40px;
     .form {
-      display: flex;
       &__input-box {
+        display: flex;
         width: 100%;
         position: relative;
         &--text {
