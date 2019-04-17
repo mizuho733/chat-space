@@ -1,60 +1,29 @@
 .wrapper
-  .side
-    .side__header
-      %p.side__header--user-name
-        =current_user.name
-      .side__header--user-icons
-        = link_to new_group_path do
-          %i.fas.fa-edit.sideicons-color
-        = link_to edit_user_path(current_user) do
-          %i.fas.fa-cog.sideicons-color
-    .side-groups
-      .group
-        %p.group__name
-          sample-group
-        %p.group__last-message
-          hello!
-      .group
-        %p.group__name
-          example
-        %p.group__last-message
-          まだメッセージはありません
-
+  = render 'shared/side_bar'
   .chat-side
     .chat-header
       .group-wrapper
         %p.group-wrapper__group-name
-          test_group
+          = @group.name
         %ul.group-wrapper__members-list
           Member :
+          - @group.users.each do |user|
+            = user.name
           %li.members-name
             test_user
-      = link_to '/groups/1/edit' do
+      = link_to edit_group_path(@group.id) do
         .chat-header__edit-btn
           Edit
     .messages
-      .message
-        .message-info
-          %p.message-info__user
-            test_user
-          %p.message-info__time-stamp
-            2019/00/00(sun) 00:00:00
-        %p.message__text
-          こんにちは！
-      .message
-        .message-info
-          %p.message-info__user
-            test_user
-          %p.message-info__time-stamp
-            2019/00/00(sun) 00:00:00
-        %p.message__text
-          さようなら！
+      = render @messages
     .form-box
       .form-wrapper
-        %form.form{:action => "#", :method => "POST"}
-          .form__input-box
-            %input.form__input-box--text{:placeholder => "type a message", :type => "text"}/
-            %label.image
-              %i.far.fa-image
-              %input.image__input{:type => "file"}/
-          %input.form__submit-btn{:type => "submit", :value => "Send"}/
+        .form
+          = form_for [@group, @message] do |f|
+            .form__input-box
+              = f.text_field :body, class: 'form__input-box--text', placeholder: 'type a message'
+              .image
+                = f.label :image, class: 'image__label' do
+                  = fa_icon 'image'
+                  = f.file_field :image, class: 'image__input'
+              = f.submit 'Send', class: 'form__submit-btn'
