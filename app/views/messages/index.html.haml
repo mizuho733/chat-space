@@ -21,7 +21,7 @@
         .form
           = form_for [@group, @message] do |f|
             .form__input-box
-              = f.text_field :body, class: 'form__input-box--text', placeholder: 'type a message'
+              = f.text_field :body, class: 'form__input-box--text', placeholder: 'type a message', id: "new_message"
               .image
                 = f.label :image, class: 'image__label' do
                   = fa_icon 'image'
