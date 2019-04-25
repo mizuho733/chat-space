@@ -29,10 +29,11 @@ $(document).on('turbolinks:load', function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html)
-      $('.form__input-box--text').val('')
+      $('#new_message')[0].reset();
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
-      alert('error')
+      alert('メッセージを入力して下さい')
     })
     .always(function(data){
       $('.form__submit-btn').prop('disabled', false);
