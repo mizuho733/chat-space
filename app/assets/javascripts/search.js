@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function() {
     search_list.append(html)
   }
 
-  function appendUserNameAdd(name, id) {
+  function addUser(name, id) {
     var html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
                   <input name='group[user_ids][]' type='hidden' value='${id}'>
                   <p class='chat-group-user__name'>${name}</p>
@@ -35,7 +35,6 @@ $(document).on('turbolinks:load', function() {
         data: { name: input },
       })
       .done(function(users) {
-        console.log(users);
         $('#user-search-result').empty();
         if (users.length !== 0) {
           users.forEach(function(user){
@@ -55,9 +54,9 @@ $(document).on('turbolinks:load', function() {
   $("#user-search-result").on("click", ".user-search-add", function () {
     var name = $(this).data("user-name");
     var id = $(this).data("user-id");
-    var html = appendUserNameAdd(name, id)
+    var html = addUser(name, id)
     $("#chat-group-users").append(html)
-    appendUserNameAdd(name, id);
+    addUser(name, id);
     $(this).parent().remove();
   });
 
