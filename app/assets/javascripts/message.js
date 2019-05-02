@@ -39,6 +39,7 @@ $(document).on('turbolinks:load', function(){
       $('.form__submit-btn').prop('disabled', false);
     })
   })
+
   var reloadMessages = function() {
     last_message_id = $('.message:last').data('id');
     function buildHTML(message) {
@@ -57,25 +58,28 @@ $(document).on('turbolinks:load', function(){
       return html;
     }
 
-    $.ajax({
-      url: 'api/messages',
-      type: "GET",
-      dataType: 'json',
-      data: { id: last_message_id }
-    })
-    .done(function(messages) {
-      var insertHTML = '';
-      if (messages.length !== 0) {
-        messages.forEach(function(message) {
-          insertHTML += buildHTML(message);
-          $('.messages').append(insertHTML);
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-        })
-      }
-    })
-    .fail(function() {
-      console.log('error')
-    })
+    current_url = location.href;
+    if (current_url.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: 'api/messages',
+        type: "GET",
+        dataType: 'json',
+        data: { id: last_message_id }
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        if (messages.length !== 0) {
+          messages.forEach(function(message) {
+            insertHTML += buildHTML(message);
+            $('.messages').append(insertHTML);
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          })
+        }
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました')
+      })
+    };
   };
   setInterval(reloadMessages, 5000);
 });
