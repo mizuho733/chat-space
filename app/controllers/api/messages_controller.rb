@@ -1,5 +1,5 @@
 class Api::MessagesController < ApplicationController
-  before_action :set_group, only: [:index]
+  before_action :set_group, only: :index
 
   def index
     @messages = @group.messages.where('id > ?', params[:id])
